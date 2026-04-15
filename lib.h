@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artem <artem@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 14:22:59 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/14 18:02:38 by adanilov         ###   ########.fr       */
+/*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
+/*   Updated: 2026/04/15 13:49:11 by artem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,36 @@
 # define KEY_S 115
 # define KEY_A 97
 # define KEY_D 100
+
+typedef struct s_textures
+{
+	char	**map;
+	char	*no_texture;
+	char	*so_texture;
+	char	*we_texture;
+	char	*ea_texture;
+	int		f_color;
+	int		c_color;
+}	t_textures;
+
+typedef struct s_position
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_position;
+
+typedef struct s_data
+{
+	void		*mlx;
+	void		*mlx_win;
+	int			rect_size;
+	t_textures	textures;
+	t_position	position;
+}	t_data;
 
 char	*get_next_line(int fd);
 
