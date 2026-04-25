@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/04/21 13:20:26 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/04/25 11:21:26 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <stdint.h>
 # include <errno.h>
 # include <string.h>
 # include "minilibx/mlx.h"
@@ -63,7 +64,19 @@ typedef struct s_data
 	t_position	position;
 }	t_data;
 
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		length;
+	int		endian;
+}				t_img;
+
 char	*get_next_line(int fd);
+
+//	....Parsing
+void	parse_textures(char *line, t_textures *textures);
 int		parsing(char *path, t_textures *textures);
 
 #endif
