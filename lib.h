@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/04/25 11:21:26 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/04/28 16:05:54 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
 
 typedef struct s_textures
 {
-	char	**map;
 	char	*no_texture;
 	char	*so_texture;
 	char	*we_texture;
@@ -57,11 +56,12 @@ typedef struct s_position
 
 typedef struct s_data
 {
+	char		**map;
 	void		*mlx;
 	void		*mlx_win;
 	int			rect_size;
-	t_textures	textures;
-	t_position	position;
+	t_textures	*textures;
+	t_position	*position;
 }	t_data;
 
 typedef struct s_img
@@ -77,6 +77,6 @@ char	*get_next_line(int fd);
 
 //	....Parsing
 void	parse_textures(char *line, t_textures *textures);
-int		parsing(char *path, t_textures *textures);
+int		parsing(char *path, t_data *data);
 
 #endif

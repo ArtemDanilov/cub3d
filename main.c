@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/25 11:22:33 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/04/28 16:08:13 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,15 @@ int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)**av;
-	t_textures	*textures;
 	t_data		*data;
 	t_img		img;
 	
 	data = malloc(sizeof(t_data));
 
-	textures = malloc(sizeof(t_textures));
-	init_texture_data(textures);
+	data->textures = malloc(sizeof(t_textures));
+	init_texture_data(data->textures);
 
-	parsing("maps/1.cub", textures);
+	parsing("maps/1.cub", data);
 
 	data->mlx = mlx_init();
 	data->mlx_win = mlx_new_window(data->mlx, 1280, 768, "Cub3D");
@@ -57,7 +56,7 @@ int	main(int ac, char **av)
 	// .....Start Tests
 	for (int i = 0; i < 64; i++)
 		for (int j = 0; j < 64; j++)
-    		my_mlx_pixel_put(&img, i, j, textures->f_color);
+    		my_mlx_pixel_put(&img, i, j, data->textures->f_color);
     
     mlx_put_image_to_window(data->mlx, data->mlx_win, img.img, 0, 0);
 	// .....End Tests

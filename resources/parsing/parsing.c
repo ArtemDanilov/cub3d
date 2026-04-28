@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 13:03:27 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/25 11:17:52 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/04/28 16:08:35 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib.h"
 
-int	parsing(char *path, t_textures *textures)
+int	parsing(char *path, t_data *data)
 {
 	char	*line;
 	int		fd;
@@ -24,7 +24,7 @@ int	parsing(char *path, t_textures *textures)
 	while (line)
 	{
 		line = ft_strtrim(line, " ");
-		parse_textures(line, textures);
+		parse_textures(line, data->textures);
 		line = get_next_line(fd);
 	}
 	return (0);
