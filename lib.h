@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/04/28 16:05:54 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/04/29 10:45:00 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct s_data
 	char		**map;
 	void		*mlx;
 	void		*mlx_win;
+	int			rows;
+	int			row_len;
 	int			rect_size;
 	t_textures	*textures;
 	t_position	*position;
@@ -77,6 +79,7 @@ char	*get_next_line(int fd);
 
 //	....Parsing
 void	parse_textures(char *line, t_textures *textures);
+void	parse_map(char *map_str, t_data *data);
 int		parsing(char *path, t_data *data);
 
 #endif

@@ -13,7 +13,7 @@ RESOURCES_DIR = ./resources
 
 ROOT_FILE = main
 RESOURCES = gnl \
-			parsing/textures parsing/parsing \
+			parsing/textures parsing/map parsing/parsing \
 
 CFILES = $(ROOT_FILE:%=%.c) $(RESOURCES:%=$(RESOURCES_DIR)/%.c)
 OBJ = $(CFILES:%.c=$(OBJ_DIR)/%.o)

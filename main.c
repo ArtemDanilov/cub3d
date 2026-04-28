@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	(void)**av;
 	t_data		*data;
-	t_img		img;
+	// t_img		img;
 	
 	data = malloc(sizeof(t_data));
 
@@ -48,19 +48,19 @@ int	main(int ac, char **av)
 
 	parsing("maps/1.cub", data);
 
-	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, 1280, 768, "Cub3D");
-	img.img = mlx_new_image(data->mlx, 1280, 768);
-    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.length, &img.endian);
+	// data->mlx = mlx_init();
+	// data->mlx_win = mlx_new_window(data->mlx, 1280, 768, "Cub3D");
+	// img.img = mlx_new_image(data->mlx, 1280, 768);
+    // img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.length, &img.endian);
     
-	// .....Start Tests
-	for (int i = 0; i < 64; i++)
-		for (int j = 0; j < 64; j++)
-    		my_mlx_pixel_put(&img, i, j, data->textures->f_color);
+	// // .....Start Tests
+	// for (int i = 0; i < 64; i++)
+	// 	for (int j = 0; j < 64; j++)
+    // 		my_mlx_pixel_put(&img, i, j, data->textures->f_color);
     
-    mlx_put_image_to_window(data->mlx, data->mlx_win, img.img, 0, 0);
-	// .....End Tests
-    mlx_loop(data->mlx);
+    // mlx_put_image_to_window(data->mlx, data->mlx_win, img.img, 0, 0);
+	// // .....End Tests
+    // mlx_loop(data->mlx);
 	
 	return (0);
 }
