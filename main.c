@@ -6,18 +6,14 @@
 /*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/28 16:08:13 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/04/30 14:41:57 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 
-void	init_texture_data()
+void	init_texture_data(t_textures *textures)
 {
-	t_textures	*textures;
-	textures = malloc(sizeof(t_textures));
-
-	textures = malloc(sizeof(t_textures));
 	textures->no_texture = NULL;
 	textures->so_texture = NULL;
 	textures->we_texture = NULL;
@@ -42,11 +38,14 @@ int	main(int ac, char **av)
 	// t_img		img;
 	
 	data = malloc(sizeof(t_data));
-
 	data->textures = malloc(sizeof(t_textures));
+	
 	init_texture_data(data->textures);
 
 	parsing("maps/1.cub", data);
+	free_map(data);
+	free(data->textures);
+	free(data);
 
 	// data->mlx = mlx_init();
 	// data->mlx_win = mlx_new_window(data->mlx, 1280, 768, "Cub3D");

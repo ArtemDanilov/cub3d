@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 13:10:36 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/29 10:48:35 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/04/30 14:45:54 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fill_map_array(char **map, char *map_str, int rows, int row_len)
 	i = 0;
 	while (i < rows)
 	{
-		map[i] = malloc(row_len * sizeof(char));
+		map[i] = malloc((row_len + 1) * sizeof(char));
 		j = 0;
 		while (map_str[j] != '\n')
 		{
@@ -31,11 +31,12 @@ void	fill_map_array(char **map, char *map_str, int rows, int row_len)
 			j++;
 		}
 		map_str += j + 1;
-		while (j <= row_len)
+		while (j < row_len)
 		{
 			map[i][j] = '1';
 			j++;
 		}
+		map[i][j] = '\0';
 		i++;
 	}
 }

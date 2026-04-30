@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 13:03:27 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/29 10:48:06 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/04/30 14:46:21 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,40 +33,44 @@ int	parsing(char *path, t_data *data)
 {
 	char	*line;
 	char	*map_str;
+	char	*tmp_map_str;
 	int		fd;
 
 	fd = open(path, O_RDONLY);
-	line = get_next_line(fd);
-	if (!line)
-		return (1);
 	map_str = ft_strdup("");
-	while (line)
+	while (1)
 	{
-		if (textures_existance(data->textures) && ft_strchr(line, '1'))
-			map_str = ft_strjoin(map_str, line);
-		else
-		{
-			line = ft_strtrim(line, " ");
-			parse_textures(line, data->textures);
-		}
 		line = get_next_line(fd);
+		if (!line)
+			break ;
+		if (textures_existance(data->textures) && ft_strchr(line, '1'))
+		{
+			tmp_map_str = map_str;
+			map_str = ft_strjoin(tmp_map_str, line);
+			free(tmp_map_str);
+		}
+		else
+			parse_textures(skip_spaces(line), data->textures);
+		free(line);
 	}
 	close(fd);
 	parse_map(map_str, data);
 
 	// ..........Show allocated array
-	for (int j = 0; j < 14; j++)
-	{
-		for (int k = 0; k < 33; k++)
-			printf("%c", data->map[j][k]);
-		printf("\n");
-	}
+	// for (int j = 0; j < 14; j++)
+	// {
+	// 	for (int k = 0; k < 33; k++)
+	// 		printf("%c", data->map[j][k]);
+	// 	printf("\n");
+	// }
+	// printf("%s\n", data->textures->ea_texture);
+	// printf("%s\n", data->textures->so_texture);
+	// printf("%d\n", data->textures->f_color);
+	// printf("%d", data->textures->c_color);
 	
-	// .........Free 
-	for (int j = 0; j < 14; j++)
-	 	free(data->map[j]);
+	// .........Free
+	// free_map(data->map);
 	free(map_str);
-	free(data->map);
 	
 	return (0);
 }

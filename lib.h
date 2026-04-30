@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/04/29 10:45:00 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/04/30 14:12:05 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ typedef struct s_img
 char	*get_next_line(int fd);
 
 //	....Parsing
+char	*skip_spaces(char *str);
+void	free_map(t_data *data);
 void	parse_textures(char *line, t_textures *textures);
 void	parse_map(char *map_str, t_data *data);
 int		parsing(char *path, t_data *data);
