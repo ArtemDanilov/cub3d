@@ -6,7 +6,7 @@
 /*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 11:17:19 by artemdanilo       #+#    #+#             */
-/*   Updated: 2026/04/30 12:40:56 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/05 10:51:02 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 char	*get_texture_path(char *line)
 {
+	char	*start;
+	char	*path;
+	int		len;
+	
+	if (!line)
+		return (NULL);
 	line += 3;
-	line = skip_spaces(line);
-	line[ft_strlen(line) - 1] = '\0';
-	return (line);
+	start = skip_spaces(line);
+	len = ft_strlen(start);
+	if (len > 0 && start[len - 1] == '\n')
+		len--;
+	path = ft_substr(start, 0, len);
+	return (path);
 }
 
 int	get_color(char *color)
@@ -47,16 +56,16 @@ int	get_color(char *color)
 
 void	parse_textures(char *line, t_textures *textures)
 {
-	if (ft_strncmp(line, "NO", 2) == 0)
+	if (ft_strncmp(line, "NO ", 3) == 0)
 		textures->no_texture = get_texture_path(line);
-	if (ft_strncmp(line, "SO", 2) == 0)
+	else if (ft_strncmp(line, "SO ", 3) == 0)
 		textures->so_texture = get_texture_path(line);
-	if (ft_strncmp(line, "WE", 2) == 0)
+	else if (ft_strncmp(line, "WE ", 3) == 0)
 		textures->we_texture = get_texture_path(line);
-	if (ft_strncmp(line, "EA", 2) == 0)
+	else if (ft_strncmp(line, "EA ", 3) == 0)
 		textures->ea_texture = get_texture_path(line);
-	if (ft_strncmp(line, "F", 1) == 0)
+	else if (ft_strncmp(line, "F", 1) == 0)
 		textures->f_color = get_color(line);
-	if (ft_strncmp(line, "C", 1) == 0)
+	else if (ft_strncmp(line, "C", 1) == 0)
 		textures->c_color = get_color(line);
 }

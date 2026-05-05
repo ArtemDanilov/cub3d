@@ -6,7 +6,7 @@
 /*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/30 14:41:57 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/05 10:50:30 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ int	main(int ac, char **av)
 
 	parsing("maps/1.cub", data);
 	free_map(data);
+	free(data->textures->no_texture);
+	free(data->textures->so_texture);
+	free(data->textures->we_texture);
+	free(data->textures->ea_texture);
 	free(data->textures);
 	free(data);
 

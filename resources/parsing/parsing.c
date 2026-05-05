@@ -6,7 +6,7 @@
 /*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 13:03:27 by adanilov          #+#    #+#             */
-/*   Updated: 2026/04/30 14:46:21 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/05 10:52:01 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ int	parsing(char *path, t_data *data)
 	// 		printf("%c", data->map[j][k]);
 	// 	printf("\n");
 	// }
+	
 	// printf("%s\n", data->textures->ea_texture);
 	// printf("%s\n", data->textures->so_texture);
 	// printf("%d\n", data->textures->f_color);
 	// printf("%d", data->textures->c_color);
 	
 	// .........Free
-	// free_map(data->map);
 	free(map_str);
 	
 	return (0);
