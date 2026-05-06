@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 11:17:19 by artemdanilo       #+#    #+#             */
-/*   Updated: 2026/05/05 10:51:02 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/06 14:28:22 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*get_texture_path(char *line)
 	char	*start;
 	char	*path;
 	int		len;
-	
+
 	if (!line)
 		return (NULL);
 	line += 3;
@@ -38,6 +38,9 @@ int	get_color(char *color)
 	hex = 0;
 	shift = 16;
 	color += 2;
+	color = skip_spaces(color);
+	if (!is_rgb(color))
+		return (0);
 	while (*color && shift >= 0)
 	{
 		val = 0;
