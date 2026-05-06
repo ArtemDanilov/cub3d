@@ -44,11 +44,7 @@ int	main(int ac, char **av)
 
 	parsing("maps/1.cub", data);
 	free_map(data);
-	free(data->textures->no_texture);
-	free(data->textures->so_texture);
-	free(data->textures->we_texture);
-	free(data->textures->ea_texture);
-	free(data->textures);
+	free_textures(data->textures);
 	free(data);
 
 	// data->mlx = mlx_init();

@@ -21,3 +21,12 @@ void	free_map(t_data *data)
 		free(data->map[i++]);
 	free(data->map);
 }
+
+void	free_textures(t_textures *textures)
+{
+	free(textures->no_texture);
+	free(textures->so_texture);
+	free(textures->we_texture);
+	free(textures->ea_texture);
+	free(textures);
+}
