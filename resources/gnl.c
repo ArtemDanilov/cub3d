@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib.h"
+#include "raycaster.h"
 
 char	*feel_the_line(int fd, char *left, char *buf)
 {
