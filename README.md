@@ -1,4 +1,6 @@
 # Cube 3d
+Try compiling it in linux by running make command,
+And than run it ./raycaster
 
 ## Cube 3d is a 3d game based on raycasting.
 
