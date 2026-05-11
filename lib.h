@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/05/06 14:20:15 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/11 13:04:00 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,15 @@ char	*get_next_line(int fd);
 //	....Parsing
 char	*skip_spaces(char *str);
 int		is_rgb(char *str);
+void	print_error(int errcode);
 void	free_map(t_data *data);
 void	parse_textures(char *line, t_textures *textures);
 void	free_textures(t_textures *textures);
 void	parse_map(char *map_str, t_data *data);
 int		parsing(char *path, t_data *data);
+
+// ....Parsing validation
+int	data_validation(t_data *data);
+int	textures_existance(t_textures *textures);
 
 #endif

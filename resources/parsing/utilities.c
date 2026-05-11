@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:37:15 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/06 12:24:59 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/11 13:03:09 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,13 @@ int	is_rgb(char *str)
 			str++;
 	}
 	return (*str == '\0' || *str == '\n');
+}
+
+void	print_error(int	errcode)
+{
+	// ENODATA         61	   /* No data available */
+	// EINVAL          22      /* Invalid argument */
+	// ENOTDIR         20      /* Not a directory */
+	// ENOENT           2      /* No such file or directory */
+	printf("ERROR: %s\n", strerror(errcode));
 }

@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 13:03:27 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/05 10:52:01 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/11 13:03:31 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib.h"
-
-int	textures_existance(t_textures *textures)
-{
-	if (!textures->no_texture)
-		return (0);
-	if (!textures->so_texture)
-		return (0);
-	if (!textures->we_texture)
-		return (0);
-	if (!textures->ea_texture)
-		return (0);
-	if (!textures->f_color)
-		return (0);
-	if (!textures->c_color)
-		return (0);
-	return (1);
-}
 
 int	parsing(char *path, t_data *data)
 {
@@ -55,6 +38,7 @@ int	parsing(char *path, t_data *data)
 	}
 	close(fd);
 	parse_map(map_str, data);
+	free(map_str);
 
 	// ..........Show allocated array
 	// for (int j = 0; j < 14; j++)
@@ -63,14 +47,6 @@ int	parsing(char *path, t_data *data)
 	// 		printf("%c", data->map[j][k]);
 	// 	printf("\n");
 	// }
-	
-	// printf("%s\n", data->textures->ea_texture);
-	// printf("%s\n", data->textures->so_texture);
-	// printf("%d\n", data->textures->f_color);
-	// printf("%d", data->textures->c_color);
-	
-	// .........Free
-	free(map_str);
 	
 	return (0);
 }

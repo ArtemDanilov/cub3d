@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/05 10:50:30 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/11 13:03:04 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,31 @@ int	main(int ac, char **av)
 	(void)**av;
 	t_data		*data;
 	// t_img		img;
+
+	if (ac < 2 || !av[1] || !av[1][0])
+		return (1);
 	
 	data = malloc(sizeof(t_data));
 	data->textures = malloc(sizeof(t_textures));
 	
 	init_texture_data(data->textures);
+	parsing(av[1], data);
+		
+	if (!data_validation(data))
+	{
+		// free_map(data);
+		free_textures(data->textures);
+		free(data);
+		return (1);
+	}
 
-	parsing("maps/1.cub", data);
-	free_map(data);
-	free_textures(data->textures);
-	free(data);
+	// printf("%s\n", data->textures->ea_texture);
+	// printf("%s\n", data->textures->so_texture);
+	// printf("%d\n", data->textures->f_color);
+	// printf("%d\n", data->textures->c_color);
+	// free_map(data);
+	// free_textures(data->textures);
+	// free(data);
 
 	// data->mlx = mlx_init();
 	// data->mlx_win = mlx_new_window(data->mlx, 1280, 768, "Cub3D");
