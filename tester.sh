@@ -56,8 +56,8 @@ echo "--- Bad maps ---"
 echo "----------------"
 echo " "
 i=1
-# This will loop through every .cub file in the maps/bad directory
-for map in "$BAD_DIR"/*.cub; do
+# This will loop through every file in the maps/bad directory
+for map in "$BAD_DIR"/*; do
     if [ -f "$map" ]; then
         run_test "$map" 1 $i
         ((i++))
@@ -72,7 +72,7 @@ echo "--- Good maps ---"
 echo "-----------------"
 echo " "
 j=1
-for map in "$GOOD_DIR"/*.cub; do
+for map in "$GOOD_DIR"/*; do
     if [ -f "$map" ]; then
         run_test "$map" 0 $j
         ((j++))
