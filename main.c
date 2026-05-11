@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/11 13:03:04 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/11 14:57:54 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,57 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 
 int	main(int ac, char **av)
 {
-	(void)ac;
-	(void)**av;
 	t_data		*data;
+	char		*path;
+	int			fd;
 	// t_img		img;
 
 	if (ac < 2 || !av[1] || !av[1][0])
+	{
+		print_error(EINVAL);
 		return (1);
-	
+	}
+	path = av[1];
+	if (ft_strncmp(get_file_extension(path), "cub", 3) != 0)
+	{
+		print_error(ENOEXEC);
+		return (1);
+	}
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+	{
+		print_error(EINVAL);
+		return (1);
+	}
+
 	data = malloc(sizeof(t_data));
 	data->textures = malloc(sizeof(t_textures));
 	
 	init_texture_data(data->textures);
-	parsing(av[1], data);
+	parsing(fd, data);
 		
 	if (!data_validation(data))
 	{
-		// free_map(data);
+		free_map(data);
 		free_textures(data->textures);
 		free(data);
 		return (1);
 	}
 
+	// ..........Show allocated array
+	// for (int j = 0; j < 14; j++)
+	// {
+	// 	for (int k = 0; k < 33; k++)
+	// 		printf("%c", data->map[j][k]);
+	// 	printf("\n");
+	// }
+
+	// ..........Check textures existance
 	// printf("%s\n", data->textures->ea_texture);
 	// printf("%s\n", data->textures->so_texture);
 	// printf("%d\n", data->textures->f_color);
 	// printf("%d\n", data->textures->c_color);
+	
 	// free_map(data);
 	// free_textures(data->textures);
 	// free(data);

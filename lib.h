@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/05/11 13:04:00 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/11 14:58:58 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # define KEY_S 115
 # define KEY_A 97
 # define KEY_D 100
+
+# define COLOR_RED "\033[0;31m"
+# define COLOR_RESET "\033[0m"
 
 typedef struct s_textures
 {
@@ -81,11 +84,13 @@ char	*get_next_line(int fd);
 char	*skip_spaces(char *str);
 int		is_rgb(char *str);
 void	print_error(int errcode);
+char	*get_file_extension(char *path);
+
 void	free_map(t_data *data);
 void	parse_textures(char *line, t_textures *textures);
 void	free_textures(t_textures *textures);
 void	parse_map(char *map_str, t_data *data);
-int		parsing(char *path, t_data *data);
+int		parsing(int fd, t_data *data);
 
 // ....Parsing validation
 int	data_validation(t_data *data);

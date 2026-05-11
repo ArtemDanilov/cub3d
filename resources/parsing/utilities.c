@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:37:15 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/11 13:03:09 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/11 14:57:48 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,21 @@ void	print_error(int	errcode)
 	// EINVAL          22      /* Invalid argument */
 	// ENOTDIR         20      /* Not a directory */
 	// ENOENT           2      /* No such file or directory */
-	printf("ERROR: %s\n", strerror(errcode));
+	// ENOEXEC          8      /* Exec format error */
+	printf("%sERROR: %s%s\n", COLOR_RED, strerror(errcode), COLOR_RESET);
+}
+
+char	*get_file_extension(char *path)
+{
+	size_t	len;
+	size_t	i;
+
+	if (!path)
+		return (NULL);
+	len = ft_strlen(path);
+	i = 0;
+	while (path[len - 1 - i] != '.')
+		i++;
+	path += len - i;
+	return (path);
 }
