@@ -9,6 +9,7 @@ GOOD_DIR="maps/good"
 GREEN="\033[0;32m"
 YELLOW="\033[0;33m"
 RED="\033[0;31m"
+WHITE="\033[0;37m"
 RESET="\033[0m"
 
 # If executable file doesn't exist
@@ -42,8 +43,11 @@ run_test() {
         printf "   output: ${YELLOW}[no output]${RESET}\n"
     else
         # This pipes the output and adds spaces to the start of every line for formatting
-        printf "   output: "
-        echo "$output" | sed 's/^/           /' | sed '1s/^ *//'
+        clean_output=$(echo "$output" | sed 's/\x1b\[[0-9;]*m//g')
+        
+        printf "   output: ${WHITE}"
+        echo "$clean_output" | sed 's/^/           /' | sed '1s/^ *//'
+        printf "${RESET}"
     fi
     echo "-----------------------"
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/05/11 14:58:58 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/12 13:58:55 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int		parsing(int fd, t_data *data);
 
 // ....Parsing validation
 int	data_validation(t_data *data);
+int	is_texture_path_valid(char *path);
 int	textures_existance(t_textures *textures);
 
 #endif

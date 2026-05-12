@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:37:15 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/11 14:57:48 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/12 16:23:48 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*get_file_extension(char *path)
 	size_t	len;
 	size_t	i;
 
-	if (!path)
+	if (!path || !ft_strchr(path, '.'))
 		return (NULL);
 	len = ft_strlen(path);
 	i = 0;

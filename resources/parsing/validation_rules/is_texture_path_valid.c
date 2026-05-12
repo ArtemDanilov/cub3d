@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures_existance.c                               :+:      :+:    :+:   */
+/*   is_texture_path_valid.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/11 08:31:24 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/12 16:01:09 by adanilov         ###   ########.fr       */
+/*   Created: 2026/05/12 12:50:36 by adanilov          #+#    #+#             */
+/*   Updated: 2026/05/12 15:59:26 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../lib.h"
 
-int	textures_existance(t_textures *textures)
+int	is_texture_path_valid(char *path)
 {
-	if (!textures->no_texture)
+	char	*f_ext;
+
+	f_ext = get_file_extension(path);
+	if (!f_ext)
 		return (0);
-	if (!textures->so_texture)
-		return (0);
-	if (!textures->we_texture)
-		return (0);
-	if (!textures->ea_texture)
-		return (0);
-	if (!textures->f_color)
-		return (0);
-	if (!textures->c_color)
+	if (ft_strncmp(f_ext, "xpm", 3) != 0)
 		return (0);
 	return (1);
 }

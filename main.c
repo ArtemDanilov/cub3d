@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/11 14:57:54 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/12 14:10:46 by adanilov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int	main(int ac, char **av)
 	// printf("%d\n", data->textures->f_color);
 	// printf("%d\n", data->textures->c_color);
 	
-	// free_map(data);
-	// free_textures(data->textures);
-	// free(data);
+	free_map(data);
+	free_textures(data->textures);
+	free(data);
 
 	// data->mlx = mlx_init();
 	// data->mlx_win = mlx_new_window(data->mlx, 1280, 768, "Cub3D");
