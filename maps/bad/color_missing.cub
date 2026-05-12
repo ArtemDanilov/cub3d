@@ -1,7 +1,7 @@
-NO textures/test/north.xpm
-SO textures/test/south.xpm
-WE textures/test/west.xpm
-EA textures/test/east.xpm
+NO textures/no_bark.xpm
+SO textures/so_bark.xpm
+WE textures/we_bark.xpm
+EA textures/ea_bark.xpm
 
 C 200,200,200
 

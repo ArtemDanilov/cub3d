@@ -1,7 +1,7 @@
-NO ./textures.help/north.xpm
-SO ./textures.help/south.xpm
-WE ./textures.help/west.xpm
-EA ./textures.help/east.xpm
+NO textures/no_bark.xpm
+SO textures/so_bark.xpm
+WE textures/we_bark.xpm
+EA textures/ea_bark.xpm
 
 F 18,53,25
 C 153,204,255

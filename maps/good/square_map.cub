@@ -1,13 +1,13 @@
-   WE                            ./textures.help/west.xpm
-NO      ./textures.help/north.xpm
+   WE                            textures/west.xpm
+NO      textures/north.xpm
 
 
 
-SO ./textures.help/south.xpm
+SO textures/so_bark.xpm
 
 F   69,222,199
 
-EA ./textures.help/east.xpm
+EA textures/ea_bark.xpm
 
 
 

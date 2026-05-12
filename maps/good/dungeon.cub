@@ -1,10 +1,10 @@
 F 76,76,76
 C 99,99,99
 
-NO ./textures.help/north.xpm
-SO ./textures.help/south.xpm
-WE ./textures.help/west.xpm
-EA ./textures.help/east.xpm
+NO textures/no_bark.xpm
+SO textures/so_bark.xpm
+WE textures/we_bark.xpm
+EA textures/ea_bark.xpm
 
 1111111111111111111
 10W1001001001000001

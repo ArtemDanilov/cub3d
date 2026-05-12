@@ -1,6 +1,6 @@
-SO ./textures.help/south.xpm
-WE ./textures.help/west.xpm
-EA ./textures.help/east.xpm
+SO textures/so_bark.xpm
+WE textures/we_bark.xpm
+EA textures/ea_bark.xpm
 
 F 20,20,20
 C 200,200,200
