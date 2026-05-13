@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 13:03:27 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/11 14:57:50 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/13 14:28:13 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	parsing(int fd, t_data *data)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		if (textures_existance(data->textures) && ft_strchr(line, '1'))
+		if (is_map(line))
 		{
 			tmp_map_str = map_str;
 			map_str = ft_strjoin(tmp_map_str, line);

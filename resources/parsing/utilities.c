@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:37:15 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/12 16:23:48 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:28:15 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,15 @@ int	is_rgb(char *str)
 	return (*str == '\0' || *str == '\n');
 }
 
-void	print_error(int	errcode)
+void	print_error(char *msg)
 {
 	// ENODATA         61	   /* No data available */
 	// EINVAL          22      /* Invalid argument */
 	// ENOTDIR         20      /* Not a directory */
 	// ENOENT           2      /* No such file or directory */
 	// ENOEXEC          8      /* Exec format error */
-	printf("%sERROR: %s%s\n", COLOR_RED, strerror(errcode), COLOR_RESET);
+	// strerror(errcode)
+	printf("%sERROR: %s%s\n", COLOR_RED, msg, COLOR_RESET);
 }
 
 char	*get_file_extension(char *path)
@@ -63,7 +64,7 @@ char	*get_file_extension(char *path)
 	size_t	i;
 
 	if (!path || !ft_strchr(path, '.'))
-		return (NULL);
+		return ("");
 	len = ft_strlen(path);
 	i = 0;
 	while (path[len - 1 - i] != '.')

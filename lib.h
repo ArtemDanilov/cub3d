@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/05/12 13:58:55 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:28:20 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*get_next_line(int fd);
 //	....Parsing
 char	*skip_spaces(char *str);
 int		is_rgb(char *str);
-void	print_error(int errcode);
+void	print_error(char *msg);
 char	*get_file_extension(char *path);
 
 void	free_map(t_data *data);
@@ -95,6 +95,6 @@ int		parsing(int fd, t_data *data);
 // ....Parsing validation
 int	data_validation(t_data *data);
 int	is_texture_path_valid(char *path);
-int	textures_existance(t_textures *textures);
+int	is_map(char *line);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/12 14:10:46 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:28:22 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,20 @@ int	main(int ac, char **av)
 
 	if (ac < 2 || !av[1] || !av[1][0])
 	{
-		print_error(EINVAL);
+		print_error("Parameter is missing");
 		return (1);
 	}
 	path = av[1];
+
 	if (ft_strncmp(get_file_extension(path), "cub", 3) != 0)
 	{
-		print_error(ENOEXEC);
+		print_error("The file extension is not valid");
 		return (1);
 	}
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 	{
-		print_error(EINVAL);
+		print_error("File is empty");
 		return (1);
 	}
 
@@ -60,7 +61,7 @@ int	main(int ac, char **av)
 	
 	init_texture_data(data->textures);
 	parsing(fd, data);
-		
+
 	if (!data_validation(data))
 	{
 		free_map(data);

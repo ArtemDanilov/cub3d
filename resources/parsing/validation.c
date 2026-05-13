@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanilov <adanilov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 08:26:50 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/12 17:35:57 by adanilov         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:28:18 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,44 +23,38 @@ void	array_of_textures(void **arr, t_textures *t)
 int	textures_validation(t_textures *t)
 {
 	void	*arr_t[4];
-	int		is_valid;
 	int		i;
 
-	is_valid = 1;
 	i = 0;
 	array_of_textures(arr_t, t);
-	while (i < 4 && is_valid)
+	while (i < 4)
 	{
-		// printf("%s\n", (char *)arr_t[i]);
-		if (!arr_t[i])
-		{
-			print_error(ENODATA);
-			// printf("Test 1: %s\n", (char *)arr_t[i]);
-			is_valid = 0;
-		}
 		if (!is_texture_path_valid(arr_t[i]))
-		{
-			print_error(ENODATA);
-			// printf("Test 2: %s\n", (char *)arr_t[i]);
-			is_valid = 0;
-		}
+			return (0);
 		i++;
 	}
-	return (is_valid);
+	return (1);
 }
 
 int	data_validation(t_data *data)
 {
 	int	is_valid;
-	
+
 	is_valid = 1;
 	if (data->row_len == 0)
 	{
-		print_error(ENODATA);
-		printf("Test 3: %d\n", data->row_len);
+		print_error("Map is missing");
 		is_valid = 0;
 	}
-	is_valid = textures_validation(data->textures);
-	
+	if (!textures_validation(data->textures))
+	{
+		print_error("Texture path is missing or incorrect");
+		is_valid = 0;
+	}
+	if (!data->textures->f_color || !data->textures->c_color)
+	{
+		print_error("Color is missing or incorrect");
+		is_valid = 0;
+	}
 	return (is_valid);
 }
