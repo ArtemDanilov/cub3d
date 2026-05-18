@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 11:17:19 by artemdanilo       #+#    #+#             */
-/*   Updated: 2026/05/06 14:28:22 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/18 14:18:01 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ int	get_color(char *color)
 
 void	parse_textures(char *line, t_textures *textures)
 {
+	static char		seen[256];
+	char			c;
+
+	c = line[0];
+	if (seen[(int)c] == c)
+		textures->duplicates = 1;
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		textures->no_texture = get_texture_path(line);
 	else if (ft_strncmp(line, "SO ", 3) == 0)
@@ -71,4 +77,6 @@ void	parse_textures(char *line, t_textures *textures)
 		textures->f_color = get_color(line);
 	else if (ft_strncmp(line, "C", 1) == 0)
 		textures->c_color = get_color(line);
+	if (c != '\0' && c != '\n')
+		seen[(int)c] = c;
 }

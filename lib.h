@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:59 by username          #+#    #+#             */
-/*   Updated: 2026/05/13 14:28:20 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/18 14:18:23 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_textures
 	char	*ea_texture;
 	int		f_color;
 	int		c_color;
+	int		duplicates;
 }	t_textures;
 
 typedef struct s_position

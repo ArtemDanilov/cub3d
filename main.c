@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 14:22:03 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/13 14:28:22 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/18 14:18:19 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_texture_data(t_textures *textures)
 	textures->ea_texture = NULL;
 	textures->f_color = 0;
 	textures->c_color = 0;
+	textures->duplicates = 0;
 }
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)

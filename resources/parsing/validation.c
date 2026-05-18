@@ -6,7 +6,7 @@
 /*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 08:26:50 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/13 14:28:18 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/18 14:18:03 by artemdanilo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int	data_validation(t_data *data)
 	if (!data->textures->f_color || !data->textures->c_color)
 	{
 		print_error("Color is missing or incorrect");
+		is_valid = 0;
+	}
+	if (data->textures->duplicates)
+	{
+		print_error("Duplicates found");
 		is_valid = 0;
 	}
 	return (is_valid);
