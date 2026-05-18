@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 11:17:19 by artemdanilo       #+#    #+#             */
-/*   Updated: 2026/05/18 14:18:01 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/18 13:21:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*get_texture_path(char *line)
 	len = ft_strlen(start);
 	if (len > 0 && start[len - 1] == '\n')
 		len--;
+	// Handle whitespaces from right
 	path = ft_substr(start, 0, len);
 	return (path);
 }

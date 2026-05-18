@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemdanilov <artemdanilov@student.42.f    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 08:26:50 by adanilov          #+#    #+#             */
-/*   Updated: 2026/05/18 14:18:03 by artemdanilo      ###   ########.fr       */
+/*   Updated: 2026/05/18 13:16:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ int	textures_validation(t_textures *t)
 {
 	void	*arr_t[4];
 	int		i;
+	int		fd;
 
 	i = 0;
 	array_of_textures(arr_t, t);
 	while (i < 4)
 	{
 		if (!is_texture_path_valid(arr_t[i]))
+			return (0);
+		fd = open(arr_t[i], O_RDONLY);
+		if (fd == -1)
 			return (0);
 		i++;
 	}
